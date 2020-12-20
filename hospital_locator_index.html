@@ -1,0 +1,226 @@
+<html>
+    <title>Hospital Locator</title>
+    <head></head>
+    <style>
+    a {
+        link-appearance: none;
+      }
+      
+      body {
+        padding: 0;
+        margin: 0;
+        font-family: lato;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+      
+      .nav {
+        height: 130px;
+        clear: both;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background: lightblue;
+        /* Old browsers */
+        background: -moz-linear-gradient(45deg,lightblue 0%, #252d60 100%);
+        /* FF3.6+ */
+        background: -webkit-gradient(linear, left bottom, right top, color-stop(0%, #192441), color-stop(100%, #252d60));
+        /* Chrome,Safari4+ */
+        background: -webkit-linear-gradient(45deg, lightblue 0%, #252d60 100%);
+        /* Chrome10+,Safari5.1+ */
+        background: -o-linear-gradient(45deg,lightblue 0%, #252d60 100%);
+        /* Opera 11.10+ */
+        background: -ms-linear-gradient(45deg, lightblue 0%, #252d60 100%);
+        /* IE10+ */
+        background: linear-gradient(45deg, lightblue 0%, #252d60 100%);
+        /* W3C */
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#192441', endColorstr='#252d60',GradientType=1 );
+        /* IE6-8 fallback on horizontal gradient */
+      }
+      
+      .search {
+        position: absolute;
+        right: 0;
+        margin-top: 45px;
+        height: 20px;
+        background-color: #fff;
+        width: 170px;
+        padding: 10px 15px;
+        text-align: left;
+        float: right;
+        color: #6d6d6d;
+        cursor: pointer;
+        transition: 0.4s ease;
+        z-index: 1;
+      }
+      .search .magnifier {
+        display: inline-block;
+        width: 40px;
+        background-color: #ff4c11;
+        height: 40px;
+        position: absolute;
+        right: 0;
+        margin-top: -10px;
+      }
+      .search:hover {
+        width: 840px;
+      }
+      
+      ul {
+        position: absolute;
+        right: 0;
+        text-align: right;
+        list-style: none;
+        margin-right: 220px;
+        margin-top: 45px;
+      }
+      ul li {
+        cursor: pointer;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        color: #fff;
+        display: inline-block;
+        padding: 10px 40px 10px 0;
+      }
+      ul li .bborder {
+        border-bottom: 3px solid #ff4c11;
+        margin-top: 10px;
+        width: 0;
+        transition: 0.4s ease;
+      }
+      ul li:hover .bborder {
+        border-bottom: 3px solid #ff4c11;
+        margin-top: 10px;
+        width: 40px;
+      }
+      
+      .bborder {
+        border-bottom: 3px solid #ff4c11;
+        margin-top: 10px;
+        width: 40px;
+      }
+      
+      .body {
+        padding-top: 110px;
+        clear: both;
+      }
+      
+      .leftContent {
+        height: 100vh;
+        width: 50%;
+        position: fixed;
+        float: left;
+      }
+      
+      .leftCCon {
+        padding: 100px 120px;
+      }
+      .leftCCon h1 {
+        text-transform: uppercase;
+        letter-spacing: 5px;
+        font-size: 1.7em;
+        color: rgba(25, 36, 65, 0.7);
+      }
+      .leftCCon p {
+        font-size: 0.7em;
+        text-transform: none;
+        letter-spacing: 0;
+        font-weight: 600;
+        color: rgba(25, 36, 65, 0.5);
+      }
+      
+      .rightContent {
+        min-height: 100vh;
+        float: right;
+        background-color: #f7f7f7;
+        width: 50%;
+        padding: 120px 0;
+      }
+      .rightContent .solutionsTab {
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        -khtml-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        cursor: pointer;
+        padding: 40px 60px;
+        background-color: rgba(25, 36, 65, 0.1);
+        margin: 0 120px 80px 120px;
+        border-radius: 3px;
+        -webkit-box-shadow: 0 0px 0px 0 rgba(0, 0, 0, 0.12), 0 1px 2px 0 rgba(0, 0, 0, 0.24);
+        transition: 0.4s ease;
+      }
+      .rightContent .solutionsTab:hover {
+        color: #fff;
+        background-color: #192441;
+        -webkit-box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 1px 2px 0 rgba(0, 0, 0, 0.4);
+      }
+      .rightContent .solutionsTab:active {
+        -webkit-transition: 0.1s ease;
+        -webkit-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.4), 0 1px 2px 0 rgba(0, 0, 0, 0.4);
+        background-color: #354d8b;
+      }
+      .rightContent .solutionsTab h2 {
+        font-weight: 100;
+      }
+      .rightContent .solutionsTab p {
+        font-size: 1.1em;
+        font-weight: 100;
+      }
+      
+      .solutionsTab:last-child {
+        margin: 0 120px;
+      }
+      
+      .ts .bborder {
+        border-bottom-color: #0fa7ea;
+      }
+      
+      .cc .bborder {
+        border-bottom-color: #107ba1;
+      }
+      
+      .ss .bborder {
+        border-bottom-color: #a81f96;
+      }
+      
+      .cps .bborder {
+        border-bottom-color: #ea0689;
+      }
+      
+      .be .bborder {
+        border-bottom-color: #cec626;
+      }
+    </style>
+    <body>
+        <div class="nav">
+                <div class="magnifier">
+                </div>
+            <p style="position: relative; font-size: xx-large; text-align: center;  color: white;">Hospital Locator</p>
+            <!-- <ul>
+              <li>Solutions<div class="bborder"></div></li>
+              <li>About<div class="bborder"></div></li>
+              <li>Support<div class="bborder"></div></li>
+              <li>Blog<div class="bborder"></div></li>
+              <li>Contact<div class="bborder"></div></li>
+            </ul> -->
+          </div>
+          <div class="body">
+          
+            <div class="leftContent">
+              <div class='leftCCon'>
+              <h1><h1>
+                <p style="text-align: center;">Google Maps
+            </div>
+            </div>
+          
+            <div class="rightContent">
+                <p style="text-align: center;">Google Maps
+          </div>
+                
+          </div>
+    </body>
+
+</html>
