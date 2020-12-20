@@ -1,5 +1,6 @@
 <script>
 	import Navbar from './Navbar.svelte';
+	import Radar_io from './Radar_io.svelte'
 	export let name;
 </script>
 
@@ -112,8 +113,6 @@ function myFunction() {
 
 </body>
 </html>
-
-</main>
 
 <style>
 	main {
